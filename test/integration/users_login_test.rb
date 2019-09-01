@@ -37,6 +37,7 @@ test "logout user" do
   delete logout_path
   assert_not is_logged_in?
   assert_redirected_to root_url
+  delete logout_path
   follow_redirect!
   assert_select "a[href=?]", login_path
   assert_select "a[href=?]", static_pages_about_path
@@ -44,6 +45,18 @@ test "logout user" do
 
 end
 
+test "ログインしたときのremembermeについて" do
+  log_in_as(@user, remember_me: "1")
+  assert_not_empty cookies["remember_token"]
+  assert_equal cookies["remember_token"], assigns(:user).remember_token
+end
+
+test "ログインしたときのremembermeが１と０" do
+  log_in_as(@user)
+  delete logout_path
+  log_in_as(@user, remember_me: "0")
+  assert_empty cookies["remember_token"]
+end
 
 
 
