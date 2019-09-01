@@ -56,7 +56,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "email downcase" do
-    mixemail = "TesT@ExaMple.coM"
+    mixemail = "TesTasededagW@ExaMple.coM"
     @user.email = mixemail
     @user.save
     assert_equal mixemail.downcase, @user.email

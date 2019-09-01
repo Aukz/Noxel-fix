@@ -107,16 +107,16 @@ input {
 
 /* forms */
 
-// 以下２つを入れるとbootstrap効かなくなる
+// 以下２つを入れるとbootstrap効かなくなる 1つ入れても大丈夫になった
 
-// #error_explanation {
-//   color: red;
-//   ul {
-//     color: red;
-//     margin: 0 0 30px 0;
-//   }
-// }
-
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+// 
 // .field_with_errors {
 //   @extend .has-error;
 //   .form-control {

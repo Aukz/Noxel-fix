@@ -11,6 +11,6 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "title", full_title("About")
     get new_user_path
     assert_response :success
-    assert_select "title", full_title
+    assert_select "title", full_title("新規登録")
   end
 end

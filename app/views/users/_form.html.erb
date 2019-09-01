@@ -1,41 +1,19 @@
-<div class="row">
-  <div class="col-md-8 col-md-offset-3">
-    <%= form_with(model: user, local: true) do |form| %>
-      <%= render 'shared/error_messages', object: form.object %>
+<% provide(:title, '新規登録') %>
 
-      <div class="field form-group">
-        <%= form.label :name %>
-        <%= form.text_field :name,class: "form-control" %>
-      </div>
+    <%= form_with(model: user, local: true) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
 
-      <div class="field ">
-        <%= form.label :email %>
-        <%= form.text_field :email,class: "form-control" %>
-      </div>
+      <%= f.label :name, "名前" %>
+      <%= f.text_field :name, class: 'form-control' %>
 
-      <!-- <div class="field">
-        <%= form.label :image %>
-        <%= form.file_field :image %>
-      </div> -->
+      <%= f.label :email, "E-メール" %>
+      <%= f.email_field :email, class: 'form-control' %>
 
-      <div class="field">
-        <%= form.label :password %>
-        <%= form.password_field :password,class: "form-control" %>
-      </div>
+      <%= f.label :password, "パスワード" %>
+      <%= f.password_field :password, class: 'form-control' %>
 
-      <div class="field">
-        <%= form.label "passwordの確認" %>
-        <%= form.password_field :password_confirmation,class: "form-control" %>
-      </div>
+      <%= f.label :password_confirmation, "パスワードの確認" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <!-- <div class="field">
-        <%= form.label :introduction %>
-        <%= form.text_area :introduction %>
-      </div> -->
-
-      <div class="actions">
-        <%= form.submit %>
-      </div>
+      <%= f.submit "アカウントを作る", class: "btn btn-primary" %>
     <% end %>
-  </div>
-</div>
