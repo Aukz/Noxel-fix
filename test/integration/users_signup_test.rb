@@ -10,7 +10,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     assert_template 'users/new'
     assert_select "div#error_explanation"
-    assert_select  "ul",3
   end
 
   test "user success" do

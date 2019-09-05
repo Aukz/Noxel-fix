@@ -1,6 +1,16 @@
-<h1>Editing User</h1>
 
-<%= render 'form', user: @user %>
+<% provide(:button_text, "更新") %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<div class="row mt-5">
+  <div class="col-md-8 mx-auto">
+    <h1>ユーザー編集</h1>
+      <%= render 'form', user: @user %>
+
+      <div class="gravatar_edit">
+        <%= gravatar_for @user %>
+        <a href="http://gravatar.com/emails" target="_blank" rel="noopener">change</a>
+      </div>
+      <%= link_to 'Show', @user %> |
+      <%= link_to 'Back', users_path %>
+  </div>
+</div>

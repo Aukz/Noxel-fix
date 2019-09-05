@@ -4,6 +4,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:test)
+    @other = users(:prara)
   end
 
   test "new_user" do
@@ -35,11 +36,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get edit" do
+    log_in_as(@user)
     get edit_user_url(@user)
-    assert_response :success
   end
 
   test "should update user" do
+    log_in_as(@user)
     patch user_url(@user), params: { user: { email: @user.email, name: @user.name, password_digest: @user.password_digest } }
     assert_redirected_to user_url(@user)
   end
@@ -51,4 +53,27 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to root_url
   end
+
+  test "should redirect edit when not logged in" do
+    get edit_user_path(@user)
+    assert_not flash.empty?
+    assert_redirected_to login_url
+  end
+
+  test "should redirect update when not logged in" do
+    patch user_path(@user), params: { user: { name: @user.name,
+                                              email: @user.email } }
+    assert_not flash.empty?
+    assert_redirected_to login_url
+  end
+
+  test "正しくないユーザー" do
+    log_in_as(@other)
+    get edit_user_path(@user)
+    assert_not flash.empty?
+    assert_redirected_to root_path
+  end
+
+
+
 end
