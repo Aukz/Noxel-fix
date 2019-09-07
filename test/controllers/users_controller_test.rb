@@ -13,6 +13,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
+    log_in_as(@user)
     get users_url
     assert_response :success
   end
@@ -71,9 +72,29 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     log_in_as(@other)
     get edit_user_path(@user)
     assert_not flash.empty?
-    assert_redirected_to root_path
+    assert_redirected_to user_path(@other)
   end
 
+  test "正しいユーザー" do
+    log_in_as(@user)
+    get edit_user_path(@user)
+    assert flash.empty?
+    assert_response :success
+  end
 
+  test "ログインして無いとindexアクセスできない" do
+    get users_path
+    assert_not flash.empty?
+    get login_url
+  end
+
+  test "ユーザー消す" do
+    log_in_as(@user)
+      assert_difference "User.count",-1 do
+        delete user_path(@user)
+        assert_not flash.empty?
+        assert_redirected_to root_url
+    end
+    end
 
 end

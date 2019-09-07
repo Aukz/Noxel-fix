@@ -9,3 +9,18 @@ prara:
   name: sat prara
   email: ducment@example.com
   password_digest: <%= User.digest('password') %>
+
+archer:
+  name: Sterling Archer
+  email: duchess@example.gov
+  password_digest: <%= User.digest('password') %>
+
+lana:
+  name: Lana Kane
+  email: hands@example.gov
+  password_digest: <%= User.digest('password') %>
+
+wawan:
+  name: wawan nel
+  email: handsded@example.gov
+  password_digest: <%= User.digest('password') %>
