@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
 
   def show
+    redirect_to root_url and return unless @user.activated
   end
 
 
@@ -24,9 +25,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
-      flash[:success] ="ようこそ Noxelへ！"
-      redirect_to @user
+      @user.send_activation_email
+      flash[:info] = "メールを送信しました。メールを確認してアカウントを有効化して下さい。"
+      redirect_to root_url
     else
       render "new"
     end

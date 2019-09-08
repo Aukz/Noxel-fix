@@ -4,6 +4,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:test)
+    @non_user =users(:non_activated)
   end
 
 test "login failed" do
@@ -58,6 +59,12 @@ test "ログインしたときのremembermeが１と０" do
   assert_empty cookies["remember_token"]
 end
 
+test "垢有効化してないユーザーの詳細ページにいけない" do
+  log_in_as(@non_user)
+  assert_not is_logged_in?
+  get user_path(@non_user)
+  assert_redirected_to root_path
+end
 
 
 

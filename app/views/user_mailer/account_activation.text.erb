@@ -1,0 +1,5 @@
+こんにちは <%= @user.name %>,
+
+ようこそNoxelへ! 下記のURLからアカウントを有効化してください！
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
