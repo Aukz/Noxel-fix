@@ -1,0 +1,14 @@
+<% provide(:title, '') %>
+
+    <%= form_with(model: novel, local: true) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :title, "タイトル" %>
+      <%= f.text_field :title, class: 'form-control' %>
+
+      <%= f.label :description, "小説概要" %>
+      <%= f.text_area :description,size: "10x10", class: 'form-control' %>
+
+
+      <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+    <% end %>

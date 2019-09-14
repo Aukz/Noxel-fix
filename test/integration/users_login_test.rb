@@ -63,7 +63,7 @@ test "垢有効化してないユーザーの詳細ページにいけない" do
   log_in_as(@non_user)
   assert_not is_logged_in?
   get user_path(@non_user)
-  assert_redirected_to root_path
+  assert_redirected_to login_path
 end
 
 

@@ -8,4 +8,13 @@
       </h1>
     </section>
   </aside>
+  <div class="col-md-8">
+    <% if @user.novels.any? %>
+    <h3>投稿した小説</h3>
+      <ol class="novels">
+        <%= render @novels %>
+      </ol>
+      <%= paginate @novels %>
+    <% end %>
+  </div>
 </div>

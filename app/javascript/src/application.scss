@@ -148,3 +148,37 @@ input {
     padding: 12px 0;
   }
 }
+
+/* microposts */
+
+.novels {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid white
+  }
+  .title {
+    display: block;
+    margin-left: 25px;
+  }
+  .description {
+    display: block;
+    margin-left: 25px;
+  }
+
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
+}

@@ -75,4 +75,13 @@ class UserTest < ActiveSupport::TestCase
   test "authenticated? test" do
     assert_not @user.authenticated?(:remember,"")
   end
+
+  test "ユーザー消えたら投稿きえる" do
+    @user.save
+    @user.novels.create!(title:"aaaaa")
+    assert_difference "Novel.count", -1 do
+      @user.destroy
+    end
+  end
+
 end

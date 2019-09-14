@@ -1,0 +1,26 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+
+noveltest:
+  title: title dayo
+  description: foobarrrr
+  created_at: <%= 1.hours.ago %>
+  user: test
+
+secondtitle:
+  title: second title
+  description: fooooobarddd
+  created_at: <%= 3.years.ago %>
+  user: test
+
+firsttitle:
+  title: first title
+  description: setumei desu
+  created_at: <%= Time.zone.now %>
+  user: test
+
+praratitle:
+  title: testtest
+  description: asdgddddddd
+  created_at: <%= Time.zone.now %>
+  user: prara

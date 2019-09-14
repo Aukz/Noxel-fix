@@ -53,3 +53,13 @@ User.create!(name:  "Example5 User",
              password_confirmation: "foobar",
              activated: true,
              activated_at: Time.zone.now)
+
+users = User.order(:created_at).take(3)
+10.times do
+  title ="サンプルです"
+  description = "a"
+  users.each do |user|
+    user.novels.create(title: title, description: description)
+    description +"a"
+  end
+end

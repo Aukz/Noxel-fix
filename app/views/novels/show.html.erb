@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @novel.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @novel.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @novel.user_id %>
+</p>
+
+
+
+
+<%  if right_user %>
+  <%= link_to '小説の編集', edit_novel_path(@novel) %> |
+  <%= link_to "小説削除",novel_path(@novel),method: :delete,
+                                            data: {confirm: "本当によろしいですか？"}%>|
+<% end  %>
+
+
+<%= link_to 'Back', novels_path %>
