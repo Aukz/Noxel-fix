@@ -84,4 +84,15 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
+  test "followとunfollow user" do
+    test = users(:test)
+    prara =users(:prara)
+    assert_not test.following?(prara)
+    test.follow(prara)
+    assert test.following?(prara)
+    assert prara.followers.include?(test)
+    test.unfollow(prara)
+    assert_not test.following?(prara)
+  end
+
 end

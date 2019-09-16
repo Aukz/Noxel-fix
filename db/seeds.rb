@@ -60,6 +60,12 @@ users = User.order(:created_at).take(3)
   description = "a"
   users.each do |user|
     user.novels.create(title: title, description: description)
-    description +"a"
+    description += "a"
   end
 end
+  users = User.all
+  user = User.first
+  following = users[2..6]
+  followers = users[3..5]
+  following.each {|followed| user.follow(followed)}
+  followers.each {|follower| follower.follow(user)}
