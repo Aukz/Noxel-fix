@@ -1,2 +1,2 @@
-<%= image_tag picture.thumbnail %>
+<%= image_tag picture.thumbnail if picture.picture.attached?%>
 <%= link_to picture.title,  picture_path(picture.id)  %>

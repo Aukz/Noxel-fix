@@ -8,6 +8,10 @@ class Picture < ApplicationRecord
   has_one_attached :picture
 
   def thumbnail
-    picture.variant(resize:'100x100')
+    picture.variant(resize: '100x100')
+  end
+
+  def main
+    picture.variant(resize: '650x600')
   end
 end

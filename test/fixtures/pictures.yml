@@ -11,3 +11,9 @@ secondpic:
   category: mmo
   created_at: <%= 10.minutes.ago %>
   user: test
+
+otherpic:
+  title: pic title 3
+  category: mmoaa
+  created_at: <%= 10.minutes.ago %>
+  user: prara

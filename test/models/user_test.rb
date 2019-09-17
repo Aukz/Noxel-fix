@@ -86,7 +86,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "ユーザー消えたら投稿きえる(画像ver)" do
     @user.save
-    @user.pictures.create!(title:"aaaaa",picture: "a.jpg" ,category:"fantagy")
+    @user.pictures.create!(title:"aaaaa",category:"fantagy")
     assert_difference "Picture.count", -1 do
       @user.destroy
     end
