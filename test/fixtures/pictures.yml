@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+firstpic:
+  title: pic title
+  category: fantagy
+  created_at: <%= 1.hours.ago %>
+  user: test
+
+secondpic:
+  title: pic title second
+  category: mmo
+  created_at: <%= 10.minutes.ago %>
+  user: test

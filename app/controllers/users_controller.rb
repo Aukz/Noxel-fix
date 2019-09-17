@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def show
     redirect_to root_url and return unless @user.activated
     @novels = @user.novels.page(params[:page]).per(8)
+    @pictures = @user.pictures.page(params[:page]).per(8)
   end
 
 

@@ -1,0 +1,17 @@
+<% provide(:title, '') %>
+
+    <%= form_with(model: picture, local: true) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :title, "タイトル" %>
+      <%= f.text_field :title, class: 'form-control' %>
+
+      <%= f.label :picture, "小説概要" %>
+      <%= f.file_field :picture, class: 'form-control' %>
+
+      <%= f.label :category, "小説概要" %>
+      <%= f.text_area :category, class: 'form-control' %>
+
+
+      <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+    <% end %>
