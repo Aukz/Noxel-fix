@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+storyone:
+  title: one
+  picture: aaaaa
+  novel: noveltest
+
+secondone:
+  title: second one
+  picture: aaaaa
+  novel: noveltest
+
+two:
+  title: two
+  picture: bbbbbb
+  novel: secondtitle

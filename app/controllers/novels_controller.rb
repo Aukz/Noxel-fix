@@ -12,6 +12,7 @@ class NovelsController < ApplicationController
 
   def show
     @user = User.find_by(id: @novel.user.id)
+    @stories = @novel.stories.page(params[:page]).per(60)
   end
 
 

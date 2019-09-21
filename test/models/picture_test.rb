@@ -38,7 +38,7 @@ class PictureTest < ActiveSupport::TestCase
   end
 
   test "新しいやつが上に来る" do
-    assert_equal pictures(:secondpic), Picture.first
+    assert_equal pictures(:otherpic), Picture.first
   end
 
 

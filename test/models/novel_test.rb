@@ -36,6 +36,14 @@ class NovelTest < ActiveSupport::TestCase
     assert_not @novel.valid?
   end
 
+  test "消したらstory一緒に消える" do
+    @novel.save
+    @story = @novel.stories.create(title:"aaaa")
+    assert_difference "Story.count", -1 do
+      @novel.destroy
+    end
+  end
+
 # fixtureにtimes.doを追加したら最新が変わるからエラーがでた一応最新が上に来るようになっている
   # test "一番上に最新投稿が来る" do
   #   assert_equal novels(:firsttitle), Novel.first

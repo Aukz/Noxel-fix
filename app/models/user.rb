@@ -82,6 +82,10 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  def story?(story)
+    novels.include?(story)
+  end
+
 private
 
   def downcase_email
