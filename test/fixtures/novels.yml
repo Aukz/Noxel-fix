@@ -7,6 +7,7 @@ noveltest:
   created_at: <%= 1.hours.ago %>
   user: test
 
+
 secondtitle:
   title: second title
   description: fooooobarddd

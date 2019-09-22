@@ -1,0 +1,15 @@
+<% provide(:title, '') %>
+
+    <%= form_with(model: story, local: true) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <%= hidden_field_tag :novel_id, params[:novel_id] %>
+
+      <%= f.label :title, "タイトル" %>
+      <%= f.text_field :title, class: 'form-control' %>
+
+      <%= f.label :content, "本文" %>
+      <%= f.rich_text_area :content%>
+
+
+      <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+    <% end %>

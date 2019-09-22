@@ -3,7 +3,9 @@
 storyone:
   title: one
   picture: aaaaa
+  # content: action_text/rich_texts(:one)
   novel: noveltest
+
 
 secondone:
   title: second one

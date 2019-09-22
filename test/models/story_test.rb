@@ -6,18 +6,13 @@ class StoryTest < ActiveSupport::TestCase
     @story =stories(:storyone)
   end
 
-  test "valid" do
-    assert @story.valid?
-  end
+  # test "valid" do
+  #   assert @story.valid?
+  # end
 
   test "title presence" do
     @story.title = nil
     assert_not @story.valid?
-  end
-
-  test "title maximum" do
-    @story.title = "a"*50
-    assert @story.valid?
   end
 
   test "titile maximum over" do

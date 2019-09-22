@@ -20,14 +20,14 @@
 
 <div class="row">
   <div class="mx-auto">
+
     <% if @novel.stories.any?  %>
       <ol class="novels">
         <%= render @stories %>
       </ol>
         <%= paginate @stories%>
     <% else %>
-      <p class="mt-5">まだ話が投稿されてません下の『話を書く』から書いてみよう</p>
-      <div class="mx-auto"><%= link_to "話を書く", new_story_path %> </div>
+      <p class="mt-5">まだ話が投稿されてません。『話を書く』から書いてみよう</p>
     <% end  %>
   </div>
 </div>
@@ -35,11 +35,9 @@
 
 
 
-<%  if right_user %>
-  <%= link_to '小説の編集', edit_novel_path(@novel) %> |
-  <%= link_to "小説削除",novel_path(@novel),method: :delete,
-                                            data: {confirm: "本当によろしいですか？"}%>|
-<% end  %>
-
-
-<%= link_to 'Back', novels_path %>
+    <%  if right_user %>
+      <%= link_to "話を書く", new_story_path(novel_id: @novel.id) %>|
+      <%= link_to '小説の編集', edit_novel_path(@novel) %> |
+      <%= link_to "小説削除",novel_path(@novel),method: :delete,
+                                                data: {confirm: "本当によろしいですか？"}%>|
+    <% end  %>

@@ -38,7 +38,7 @@ class NovelTest < ActiveSupport::TestCase
 
   test "消したらstory一緒に消える" do
     @novel.save
-    @story = @novel.stories.create(title:"aaaa")
+    @story = @novel.stories.create(title:"aaaa",content:"aaaa")
     assert_difference "Story.count", -1 do
       @novel.destroy
     end
