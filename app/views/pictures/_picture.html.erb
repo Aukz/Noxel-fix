@@ -1,2 +1,6 @@
-<%= image_tag picture.thumbnail if picture.picture.attached?%>
-<%= link_to picture.title,  picture_path(picture.id)  %>
+
+  <div class="col-md-4">
+      <%= image_tag picture.thumbnail if picture.picture.attached?%>
+      <br>
+      <%= link_to picture.title,  picture_path(picture.id)  %>
+  </div>

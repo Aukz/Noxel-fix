@@ -15,7 +15,7 @@
     </section>
   </aside>
   <!-- mt-3つけるとタブの線が短くなる -->
-  <div class="col-md-8, mt-4">
+  <div class="col-md-8 mt-4">
     <!-- タブ本体 -->
     <ul class="nav nav-tabs">
       <li class="nav-item">
@@ -42,7 +42,9 @@
         <% if @user.pictures.any? %>
           <h3 class="mt-3">イラスト一覧</h3>
           <ol class="pictures">
+            <div class="row">
             <%= render @pictures %>
+            </div>
           </ol>
             <%= paginate @pictures %>
         <% else %>

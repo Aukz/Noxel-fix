@@ -18,12 +18,17 @@ class StoryGeneralTest < ActionDispatch::IntegrationTest
       post novels_path, params:{ novel:{ title:"aaaaa",description:"aaaaa"}}
     end
     novel = @user.novels.create(title:"aaaaa",description:"aaaaa")
-    # かなり頑張ったけどCouldn't find Novel without an IDと言われ先に進めなかった
-    # assert_difference 'Story.count' do
-    #   post stories_path, params: { story: { title: "foobar",novel_id: novel.id} }
-    # end
-    # get new_story_path(users(:prara))
-    # assert_redirected_to @user
+    assert_no_difference 'Story.count' do
+      post stories_path, params: { story: { title: nil,content: nil},novel_id: novel.id}
+    end
+    assert_difference 'Story.count' do
+      post stories_path, params: { story: { title: "foobar",content: "aaaa"},novel_id: novel.id}
+    end
+    assert_redirected_to novel_path(novel.id)
+    follow_redirect!
+    assert_select 'a', text: 'foobar', count: 1
+    get novel_path(novels(:praratitle))
+    assert_select 'a', text: '話を書く', count: 0
   end
 
 end
