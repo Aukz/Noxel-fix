@@ -3,7 +3,12 @@
 
 /* mixins, variables, etc. */
 $gray-medium-light: #eaeaea;
-
+body{
+  background: #efefef;
+  .container{
+    background: #fff;
+  }
+}
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
@@ -41,14 +46,7 @@ footer a:hover {
   color: #222;
 }
 
-footer small {
-  float: left;
-}
 
-footer ul {
-  float: right;
-  list-style: none;
-}
 
 footer ul li {
   float: left;

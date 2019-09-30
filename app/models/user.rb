@@ -4,6 +4,8 @@ class User < ApplicationRecord
   before_create :create_activation_digest
   has_many :novels, dependent: :destroy
   has_many :pictures, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  has_many :novel_bookmark, through: :bookmarks, source: :novel
   has_many :active_relationships, class_name:  "Relationship",foreign_key: "follower_id",
                                                 dependent:   :destroy
   has_many :following, through: :active_relationships, source: :followed

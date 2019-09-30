@@ -20,6 +20,7 @@ class StoriesController < ApplicationController
   end
 
   def show
+    store_location
     @novel = @story.novel
   end
 

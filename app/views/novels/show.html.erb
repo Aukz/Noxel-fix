@@ -37,7 +37,7 @@
 
 
 
-    <%  if right_user %>
+    <%  if logged_in? && right_user %>
       <%= link_to "話を書く", new_story_path(novel_id: @novel.id) %>|
       <%= link_to '小説の編集', edit_novel_path(@novel) %> |
       <%= link_to "小説削除",novel_path(@novel),method: :delete,

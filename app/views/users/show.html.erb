@@ -30,9 +30,22 @@
       <div id="novel" class="tab-pane active">
         <% if @user.novels.any? %>
           <h3 class="mt-3">小説一覧</h3>
-          <ol class="novels">
-            <%= render @novels %>
-          </ol>
+
+            <table class="novels table ">
+              <!-- <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead> -->
+              <tbody>
+                <%= render @novels %>
+
+              </tbody>
+            </table>
+
             <%= paginate @novels %>
         <% else %>
           <h5 class="mt-3">まだ小説が投稿されていません。上の投稿から投稿してみよう</h5>
