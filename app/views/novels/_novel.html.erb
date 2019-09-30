@@ -1,6 +1,11 @@
-<li id="novel-<%= novel.id %>">
-  <span class="title"><%= link_to novel.title, novel_path(novel.id) %></span>
-  <% if novel.description  %>
-  <!-- <span class="description"><%= novel.description%></span> -->
-  <% end %>
-</li>
+    <tr id="novel-<%= novel.id %>"">
+      <td scope="row" class="title">
+          <%= link_to novel.title, novel_path(novel.id) %>
+          <% if novel.description  %>
+          <span class="description text-break"><%= novel.description.truncate(50)%></span>
+          <% end %>
+      </td>
+      <!-- <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td> -->
+    </tr>
