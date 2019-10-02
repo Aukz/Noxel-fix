@@ -88,6 +88,20 @@ class User < ApplicationRecord
     novels.include?(story)
   end
 
+  def bookmark?(other_novel)
+    novel_bookmark.include?(other_novel)
+  end
+
+  def bookmark(other_novel)
+    novel_bookmark << other_novel
+  end
+
+  def unbookmark(other_novel)
+    bookmarks.find_by(novel_id: other_novel.id).destroy
+  end
+
+
+
 private
 
   def downcase_email

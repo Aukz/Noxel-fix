@@ -24,28 +24,20 @@
       <li class="nav-item">
         <a href="#picture" class="nav-link" data-toggle="tab">イラスト</a>
       </li>
+      <li class="nav-item">
+        <a href="#bookmark" class="nav-link" data-toggle="tab">ブックマーク</a>
+      </li>
     </ul>
     <!-- タブの中 -->
     <div class="tab-content">
       <div id="novel" class="tab-pane active">
         <% if @user.novels.any? %>
           <h3 class="mt-3">小説一覧</h3>
-
             <table class="novels table ">
-              <!-- <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
-                </tr>
-              </thead> -->
               <tbody>
                 <%= render @novels %>
-
               </tbody>
             </table>
-
             <%= paginate @novels %>
         <% else %>
           <h5 class="mt-3">まだ小説が投稿されていません。上の投稿から投稿してみよう</h5>
@@ -62,7 +54,18 @@
             <%= paginate @pictures %>
         <% else %>
           <h5 class="mt-3">まだイラストが投稿されていません。上の投稿から投稿してみよう</h5>
-
+        <% end %>
+      </div>
+      <div id="bookmark" class="tab-pane">
+          <h3 class="mt-3">ブックマーク</h3>
+        <% if @user.novel_bookmark.any? %>
+            <table class="novels table ">
+              <tbody>
+                <!-- なぜか_bookmark.html.erbがなくてもパーシャルされる -->
+                <%= render @bookmarks %>
+              </tbody>
+            </table>
+            <%= paginate @bookmarks %>
         <% end %>
       </div>
     </div>
