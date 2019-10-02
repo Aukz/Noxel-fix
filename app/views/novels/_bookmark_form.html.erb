@@ -1,0 +1,11 @@
+<% if logged_in? %>
+  <% unless current_user?(@user) %>
+    <div id="bookmark_form">
+      <% if current_user.bookmark?(@novel) %>
+        <%= render "unbookmark"  %>
+      <% else  %>
+        <%= render "bookmark" %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

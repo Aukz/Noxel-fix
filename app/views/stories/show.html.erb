@@ -11,9 +11,12 @@
       <%if logged_in?  %>
           <%= @story.content %>
         <% else %>
-            <%= truncate(strip_tags(@story.rich_text_content.to_s), length: 20) %>
-            <br>
-            <%= link_to "ログイン",login_path,class:"btn btn-primary" %>
+        <%= truncate(strip_tags(@story.rich_text_content.to_s), length: 55) %>
+        <br>
+        <br>
+        <div class="">
+          続きを見る場合はログインしてください： <%= link_to "ログイン",login_path,class:"btn btn-primary" %>
+        </div>
         <% end  %>
     </div>
   </div>
