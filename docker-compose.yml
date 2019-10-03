@@ -3,11 +3,11 @@ version: '3.7'
 services:
   web:
     build: .
-    command: bash -c "rm -f /Desktop/Noxel/tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    command: bash -c "rm -f /Noxel/tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     ports:
       - "3000:3000"
     volumes:
-      - .:/Users/kazu/Desktop/Noxel
+      - .:/Noxel
     depends_on:
       - db
 

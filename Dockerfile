@@ -4,14 +4,15 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
     && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
 RUN apt-get update -qq && apt-get install -y nodejs yarn
+RUN npm rebuild node-sass
 
-WORKDIR /Users/kazu/Desktop/Noxel
-COPY Gemfile /Users/kazu/Desktop/Noxel/Gemfile
-COPY Gemfile.lock /Users/kazu/Desktop/Noxel/Gemfile.lock
+WORKDIR /Noxel
+COPY Gemfile /Noxel/Gemfile
+COPY Gemfile.lock /Noxel/Gemfile.lock
 COPY package.json yarn.lock ./
 RUN yarn install --check-files
 RUN bundle install
-COPY . /Users/kazu/Desktop/Noxel
+COPY . /Noxel
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
