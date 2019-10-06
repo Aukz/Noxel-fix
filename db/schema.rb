@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_30_035855) do
+ActiveRecord::Schema.define(version: 2019_10_03_090546) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
     t.string "record_type", null: false
     t.bigint "record_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
   end
 
@@ -53,12 +53,22 @@ ActiveRecord::Schema.define(version: 2019_09_30_035855) do
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
+  create_table "impressions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.integer "story_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["story_id"], name: "index_impressions_on_story_id"
+    t.index ["user_id"], name: "index_impressions_on_user_id"
+  end
+
   create_table "novels", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id", "title"], name: "index_novels_on_user_id_and_title"
     t.index ["user_id"], name: "index_novels_on_user_id"
   end
@@ -67,8 +77,8 @@ ActiveRecord::Schema.define(version: 2019_09_30_035855) do
     t.string "title"
     t.string "category"
     t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["category"], name: "index_pictures_on_category"
     t.index ["title"], name: "index_pictures_on_title"
     t.index ["user_id"], name: "index_pictures_on_user_id"
@@ -77,8 +87,8 @@ ActiveRecord::Schema.define(version: 2019_09_30_035855) do
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["followed_id"], name: "index_relationships_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
@@ -89,8 +99,8 @@ ActiveRecord::Schema.define(version: 2019_09_30_035855) do
     t.text "content"
     t.string "picture"
     t.bigint "novel_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["novel_id"], name: "index_stories_on_novel_id"
     t.index ["title"], name: "index_stories_on_title"
   end
@@ -108,8 +118,8 @@ ActiveRecord::Schema.define(version: 2019_09_30_035855) do
     t.datetime "activated_at"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["name"], name: "index_users_on_name"
     t.index ["status"], name: "index_users_on_status"

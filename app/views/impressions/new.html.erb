@@ -1,0 +1,18 @@
+<% provide(:button_text, "感想を投稿する") %>
+<% provide(:title, '') %>
+
+<div class="row">
+  <div class="col-md-8 mx-auto">
+    <h3 class="mt-4">感想</h3>
+      <%= form_for(@impression) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <%= f.hidden_field :story_id, value: params[:story_id] %>
+
+        <%= f.label :content, "感想本文" %>
+        <%= f.text_area :content,size: "10x10", class: 'form-control' %>
+
+        <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+      <% end %>
+
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<table class="impression table border ">
+  <tbody>
+    <tr id="impression-<%= impression.id %>"">
+      <td scope="row" class="impression">
+        <div class="mx-auto">
+            投稿者:<%= link_to impression.user.name, user_path(impression.user.id) %>
+          <span class="ml-5">投稿日時:<%= impression.created_at %></span>
+        </div>
+        <h5 class="mt-2">感想</h5>
+        <%= impression.content  %>
+        <div class="mt-1">
+          <% if current_user == impression.user %>
+             |<%= link_to "編集", edit_impression_path(impression.id, story_id: params[:id]) %>|
+             <%= link_to "削除", impression_path(impression.id, story_id: params[:id]),method: :delete,
+                                                data: {confirm: "感想を削除します。本当によろしいですか？"} %>|
+          <% end %>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

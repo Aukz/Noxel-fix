@@ -1,6 +1,6 @@
 class StoriesController < ApplicationController
-  before_action :set_story, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_user, only: [:new,:create,:edit,:update,:destroy]
+  before_action :set_story, only: [:show, :edit, :update, :destroy,:impression]
+  before_action :logged_in_user, only: [:new,:create,:edit,:update,:destroy,:impression]
   before_action :correct_user, only: [:edit,:update,:destroy]
   before_action :new_story, only: [:new]
 
@@ -41,6 +41,11 @@ class StoriesController < ApplicationController
     @story.destroy
     flash[:success] = "削除しました"
     redirect_to @novel
+  end
+
+  def impression
+    @story = Story.find(params[:id])
+    @impressions = Impression.where(story_id: @story.id).order(created_at: "DESC")
   end
 
     private

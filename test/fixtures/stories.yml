@@ -16,3 +16,8 @@ two:
   title: two
   picture: bbbbbb
   novel: secondtitle
+
+three:
+  title: three
+  picture: cccc
+  novel: praratitle

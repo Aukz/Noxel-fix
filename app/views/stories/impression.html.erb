@@ -1,0 +1,11 @@
+<div class="row">
+    <%= @story.title %>
+  <div class="ml-5 mt-5">
+     <%= link_to "感想を書く",new_impression_path(story_id: @story.id) %>
+  </div>
+
+  <div class="mx-auto card p-3 border-0 w-75 mt-4">
+    <%= render @impressions %>
+  </div>
+
+</div>

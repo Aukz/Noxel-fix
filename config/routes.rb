@@ -12,9 +12,14 @@ Rails.application.routes.draw do
   end
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :novels 
-  resources :stories
+  resources :novels
+  resources :stories do
+    member do
+      get :impression
+    end
+  end
   resources :pictures
+  resources :impressions
   resources :bookmarks, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
