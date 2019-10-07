@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include NovelsHelper
   include PicturesHelper
+  include RoomsHelper
 
 
   def logged_in_user

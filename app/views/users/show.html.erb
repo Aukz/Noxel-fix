@@ -13,6 +13,13 @@
          <%= render 'follow_form' if logged_in? %>
       </section>
     </section>
+    <% if logged_in? && !current_user?(@user) && room?(current_user,@user) %>
+      <%= link_to "メッセージボックス",room?(current_user,@user) ,class: "btn btn-warning text-white btn-block" %>
+    <% elsif  logged_in? && !current_user?(@user) && room?(@user,current_user) %>
+      <%= link_to "メッセージボックス",room?(@user,current_user) ,class: "btn btn-warning text-white btn-block" %>
+    <% elsif logged_in? && !current_user?(@user) %>
+      <%= link_to "メッセージボックス", rooms_path(user_id: @user.id), method: :post, class: "btn btn-warning text-white btn-block" %>
+    <% end %>
   </aside>
   <!-- mt-3つけるとタブの線が短くなる -->
   <div class="col-md-8 mt-4">

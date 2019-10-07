@@ -1,0 +1,13 @@
+<% if message.sender_id == current_user.id %>
+<div class="card">
+  <div class="text-right">
+    <%= message.content %>
+  </div>
+</div>
+<% else %>
+  <div class="card">
+    <div class="text-left">
+      <%= message.content %>
+    </div>
+  </div>
+<% end %>
