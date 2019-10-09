@@ -6,13 +6,15 @@ class RoomsController < ApplicationController
       redirect_to room
     else
       room = Room.create(sender_id: current_user.id,receiver_id: params[:user_id])
-      redirect_to room, success: "メッセージを開始しました"
+      user = User.find(params[:user_id])
+      flash[:success] ="#{user.name}さんとの部屋です"
+      redirect_to room
     end
   end
 
   def show
     @room = Room.find(params[:id])
-    @message = Message.new(room_id: @room.id)
+    @message = Message.new
   end
 
 end

@@ -41,7 +41,6 @@ test "logout user" do
   delete logout_path
   follow_redirect!
   assert_select "a[href=?]", login_path
-  assert_select "a[href=?]", static_pages_about_path
   assert_select "a[href=?]", new_user_path
 
 end

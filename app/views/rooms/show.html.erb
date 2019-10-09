@@ -1,5 +1,17 @@
-<p>送信者：<%= User.find_by(id: @room.sender_id).name %></p>
-<p>受信者：<%= User.find_by(id: @room.receiver_id).name %></p>
+<% provide(:button_text, "メッセージ送信") %>
+
+  <div class="text-right">
+    <p>送信者：<%= current_user.name %></p>
+  </div>
+  <div class="text-left">
+    <% if current_user.id == @room.sender_id %>
+      <p>受信者：<%= User.find_by(id: @room.receiver_id).name %></p>
+    <% elsif current_user.id != @room.sender_id  %>
+      <p>受信者：<%= User.find_by(id: @room.sender_id).name %></p>
+    <% end %>
+  </div>
+
+
 
 <div id="messages">
   <%= render @room.messages %>
@@ -10,9 +22,10 @@
 
 <%= form_with(model: @message, local: true) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
+  <%= f.hidden_field :room_id, value: @room.id %>
+  <%= f.hidden_field :receiver_id, value: @room.receiver_id %>
+  <%= f.hidden_field :sender_id, value: @room.sender_id %>
   <%= f.label :content,"メッセージ" %>
   <%= f.text_field :content, class: 'form-control' %>
-  <%= f.hidden_field :room_id,value: @room.id %>
-  <%= f.hidden_field :receiver_id,value: @room.receiver_id %>
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>

@@ -1,6 +1,10 @@
 <header class="sticky-top">
   <nav class="navbar navbar-dark bg-dark  navbar-expand-lg">
-    <a class="navbar-brand mb-0 h1" href="/">Noxel</a>
+    <% if logged_in? %>
+      <%= link_to "Noxel", user_path(current_user), class:"navbar-brand mb-0 h1" %>
+    <% else %>
+      <a class="navbar-brand mb-0 h1" href="/">Noxel</a>
+    <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,19 +13,17 @@
           <% if logged_in? %>
           <ul class="navbar-nav mr-auto">
             <%= link_to "User", users_path, class: "nav-link" %>
-            <%= link_to "プロフィール", user_path(current_user), class: "nav-link" %>
             <%= link_to "ランキング", "#", class: "nav-link" %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 設定
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= link_to "未定", "#", class: "dropdown-item" %>
                 <%= link_to "ユーザー情報編集", edit_user_path(current_user), class: "dropdown-item" %>
                 <%= link_to "ログアウト", logout_path, method: :delete, class: "dropdown-item" %>
-                <div class="dropdown-divider"></div>
+                <!-- <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a>
-              </div>
+              </div> -->
             </li>
           </ul>
           <ul class="navbar-nav ml-auto">
@@ -38,14 +40,14 @@
         <% else %>
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="<%= static_pages_about_path %>">about</a>
+              <a class="nav-link" href="<%= new_user_path %>">新規登録</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="<%= login_path %>">ログイン</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
-            </li>
+            </li> -->
           </ul>
         <% end  %>
           <%# unless request.user_agent.include?("Mobile") %>

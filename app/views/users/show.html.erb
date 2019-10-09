@@ -13,68 +13,12 @@
          <%= render 'follow_form' if logged_in? %>
       </section>
     </section>
-    <% if logged_in? && !current_user?(@user) && room?(current_user,@user) %>
-      <%= link_to "メッセージボックス",room?(current_user,@user) ,class: "btn btn-warning text-white btn-block" %>
-    <% elsif  logged_in? && !current_user?(@user) && room?(@user,current_user) %>
-      <%= link_to "メッセージボックス",room?(@user,current_user) ,class: "btn btn-warning text-white btn-block" %>
-    <% elsif logged_in? && !current_user?(@user) %>
-      <%= link_to "メッセージボックス", rooms_path(user_id: @user.id), method: :post, class: "btn btn-warning text-white btn-block" %>
-    <% end %>
+      <% if logged_in? && current_user?(@user) %>
+        <%= link_to "DM一覧", room_user_path(@user), class: "btn btn-success text-white btn-block" %>
+      <% end %>
+      <%= render "messagebox" %>
   </aside>
-  <!-- mt-3つけるとタブの線が短くなる -->
-  <div class="col-md-8 mt-4">
-    <!-- タブ本体 -->
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a href="#novel" class="nav-link active" data-toggle="tab">小説</a>
-      </li>
-      <li class="nav-item">
-        <a href="#picture" class="nav-link" data-toggle="tab">イラスト</a>
-      </li>
-      <li class="nav-item">
-        <a href="#bookmark" class="nav-link" data-toggle="tab">ブックマーク</a>
-      </li>
-    </ul>
-    <!-- タブの中 -->
-    <div class="tab-content">
-      <div id="novel" class="tab-pane active">
-        <% if @user.novels.any? %>
-          <h3 class="mt-3">小説一覧</h3>
-            <table class="novels table ">
-              <tbody>
-                <%= render @novels %>
-              </tbody>
-            </table>
-            <%= paginate @novels %>
-        <% else %>
-          <h5 class="mt-3">まだ小説が投稿されていません。上の投稿から投稿してみよう</h5>
-        <% end %>
-      </div>
-      <div id="picture" class="tab-pane">
-        <% if @user.pictures.any? %>
-          <h3 class="mt-3">イラスト一覧</h3>
-          <ol class="pictures">
-            <div class="row">
-            <%= render @pictures %>
-            </div>
-          </ol>
-            <%= paginate @pictures %>
-        <% else %>
-          <h5 class="mt-3">まだイラストが投稿されていません。上の投稿から投稿してみよう</h5>
-        <% end %>
-      </div>
-      <div id="bookmark" class="tab-pane">
-          <h3 class="mt-3">ブックマーク</h3>
-        <% if @user.novel_bookmark.any? %>
-            <table class="novels table ">
-              <tbody>
-                <!-- なぜか_bookmark.html.erbがなくてもパーシャルされる -->
-                <%= render @bookmarks %>
-              </tbody>
-            </table>
-            <%= paginate @bookmarks %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+
+  <%= render "tab" %>
+
 </div>
