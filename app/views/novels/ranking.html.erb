@@ -1,0 +1,6 @@
+<% @ranks.each_with_index do |rank, i|  %>
+<div class="row">
+  <%= i+1 %>位:  タイトル:   <%= link_to rank.title,rank %>
+  <%= rank.description %>
+</div>
+<% end  %>

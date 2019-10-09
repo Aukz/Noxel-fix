@@ -50,6 +50,9 @@ class NovelsController < ApplicationController
     redirect_to current_user
   end
 
+  def ranking
+    @ranks =Novel.find(Bookmark.group(:novel_id).order('count(novel_id) desc').limit(10).pluck(:novel_id))
+  end
   private
 
     def set_novel
