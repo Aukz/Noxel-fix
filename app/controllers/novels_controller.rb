@@ -6,7 +6,7 @@ class NovelsController < ApplicationController
 
 
   def index
-    @novels = Novel.all
+    @novels = Novel.search(seach_params[:novel])
   end
 
 
@@ -54,6 +54,10 @@ class NovelsController < ApplicationController
     @ranks =Novel.find(Bookmark.group(:novel_id).order('count(novel_id) desc').limit(10).pluck(:novel_id))
   end
   private
+
+    def seach_params
+      params.fetch(:search, {}).permit(:novel)
+    end
 
     def set_novel
       @novel = Novel.find(params[:id])

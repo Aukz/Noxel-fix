@@ -1,6 +1,38 @@
-<% @ranks.each_with_index do |rank, i|  %>
-<div class="row">
-  <%= i+1 %>位:  タイトル:   <%= link_to rank.title,rank %>
-  <%= rank.description %>
-</div>
-<% end  %>
+<div class="card">
+  <div class="row">
+    <div class="col-md-6 col-10 mx-auto border-right">
+      <% i = 0 %>
+      <% @ranks[0,5].each do |rank|  %>
+        <div class="row">
+          <div class="col-md-2 col-3 mx-auto text-center">
+            <span class="bg-<%= i == 0 ? 'warning' : '' %> p-3 m-0"><%= i+1 %></span>
+          </div>
+          <div class="col-md-10 col-9 mx-auto ">
+            <%= link_to rank.title,rank,class: "" %>
+            <br>
+            <small><%= rank.user.name %></small>
+          </div>
+        </div>
+        <hr>
+        <% i += 1 %>
+      <% end  %>
+    </div>
+    <div class="col-md-6 col-10 mx-auto">
+      <% @ranks[4,5].each do |rank|  %>
+        <div class="row">
+          <div class="col-md-2 col-3 mx-auto text-center">
+            <span class="bg-<%= i == 0 ? 'warning' : '' %> p-3 m-0"><%= i+1 %></span>
+          </div>
+          <div class="col-md-10 col-9 mx-auto ">
+            <%= link_to rank.title,rank,class: "" %>
+            <br>
+            <small><%= rank.user.name %></small>
+          </div>
+        </div>
+        <hr>
+        <% i += 1 %>
+      <% end  %>
+    </div>
+  </div>
+
+  </div>
