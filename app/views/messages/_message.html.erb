@@ -1,13 +1,14 @@
 <% if message.sender_id == current_user.id %>
-<div class="card">
+
+<div class="card border border-0">
   <div class="text-right">
-    <%= message.content %>
+    <span class="pr-3"><%= message.content %></span>
   </div>
 </div>
 <% else %>
-  <div class="card">
+  <div class="card border border-0">
     <div class="text-left">
-      <%= message.content %>
+      <span class="pl-3"><%= message.content %></span>
     </div>
   </div>
 <% end %>

@@ -1,9 +1,9 @@
 <% provide(:button_text, "メッセージ送信") %>
 
-  <div class="text-right">
+  <div class="text-right pt-3">
     <p>送信者：<%= current_user.name %></p>
   </div>
-  <div class="text-left">
+  <div class="text-left pt-3">
     <% if current_user.id == @room.sender_id %>
       <p>受信者：<%= User.find_by(id: @room.receiver_id).name %></p>
     <% elsif current_user.id != @room.sender_id  %>
@@ -13,7 +13,7 @@
 
 
 
-<div id="messages">
+<div id="messages" class="border-1 border mt-5">
   <%= render @room.messages %>
 </div>
 
