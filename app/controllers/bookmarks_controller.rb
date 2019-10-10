@@ -11,7 +11,6 @@ class BookmarksController < ApplicationController
     @novel = Bookmark.find(params[:id]).novel
     current_user.unbookmark(@novel)
     redirect_to @novel
-
   end
 
 end

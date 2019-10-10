@@ -7,7 +7,7 @@ class Novel < ApplicationRecord
   validates :title, presence: true, length: {maximum: 120}
   validates :user_id, presence: true
 
-    def self.search(search)
-      where(['title LIKE ?', "%#{search}%"])
-    end
+  def self.search(search)
+    where(['title LIKE ?', "%#{search}%"])
+  end
 end
