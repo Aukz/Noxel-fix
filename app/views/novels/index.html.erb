@@ -7,7 +7,7 @@
           <td scope="row" class="search">
             <div class="pl-5">
               <h4><%= link_to novel.title, novel%><span class="ml-3 h6">作者: <%= novel.user.name %></span></h4>
-              <%= novel.description %>
+              <%= novel.description.truncate(50) %>
             </div>
           </td>
         </tr>

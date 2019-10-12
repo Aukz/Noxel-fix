@@ -1,24 +1,27 @@
-# README
+# Noxel
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+作家とイラストレーターを繋げるサービスです。転職用のポートフォリオとして作りました
 
-Things you may want to cover:
+# テストユーザーとしてログイン
 
-* Ruby version
+email: test1234@example.com
+password: testtest
 
-* System dependencies
+#アプリ本体
 
-* Configuration
+http://3.114.132.40
 
-* Database creation
+#使用した技術 Gem
+ruby 2.5.0
+Ruby on Rails 6.0.0
+bootstrap4
+MySQL 5.7
+active_storage(ファイルアップロード)
+action_text(リッチなテキストエディタ機能)
+AWS
+Docker
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Gem
+kaminari
+bcrypt
+mini_magick
