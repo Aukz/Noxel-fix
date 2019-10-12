@@ -1,13 +1,10 @@
 <% provide(:title,"Noxel")%>
 
-<div class="container">
-  <div class="jumbotron m-3">
-    <h1 class="display-4">Hello, Bootstrap!</h1>
-    <hr class="my-4">
-    <p>This is the template of Ruby on Rails using Bootstrap.</p>
-    <p>testtesttewst</p>
-
-  <%= link_to "新規登録", new_user_path, class: "btn btn-lg btn-primary" %>
-
+<div class="main-rapper">
+  <h1>Welcome</h1>
+  <div class="">
+    <%= link_to "新規作成", new_user_path, class: "btn btn-success text-white btn-block"%>
+    <%= link_to "ログイン", login_path, class: "btn btn-danger text-white btn-block"%>
   </div>
+
 </div>

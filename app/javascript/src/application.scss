@@ -1,10 +1,11 @@
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 /* mixins, variables, etc. */
 $gray-medium-light: #eaeaea;
 body{
-  background: #efefef;
+  background-image: url("/images/wall.jpg");
+  // background: #efefef;
   .container{
     background: #fff;
   }
@@ -12,6 +13,8 @@ body{
 .text-right{
   float: right;
 }
+
+
 // h5{
 //   .impreback{
 //     background-color: red;
