@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :static_home
   include SessionsHelper
   include NovelsHelper
   include PicturesHelper
@@ -11,5 +12,9 @@ class ApplicationController < ActionController::Base
       flash[:danger] = "ログインしてください"
       redirect_to login_url
     end
+  end
+
+  def static_home
+    @home = true
   end
 end
