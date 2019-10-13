@@ -4,8 +4,8 @@ Noxelは作家とイラストレーターを繋げるサービスです。転職
 
 # テストユーザーとしてログイン
 
-  *email: test1234@example.com  
-  *password: testtest
+* email: test1234@example.com  
+* password: testtest
 
 # アプリ本体
 
@@ -25,9 +25,9 @@ http://3.114.132.40
 * Docker  
 
 使用したGem
-*kaminari  
-*bcrypt  
-*mini_magick  
+* kaminari  
+* bcrypt  
+* mini_magick  
 
 # 機能一覧
 *
