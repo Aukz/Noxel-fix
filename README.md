@@ -44,5 +44,5 @@ http://3.114.132.40
 * 小説の検索機能  
 
 # 開発環境
-自身のMacBook上でDocker環境での開発を行なっています。
+MacBookpro上でDocker環境での開発を行なっています。  
 [Dockerfile](/Dockerfile)とpidファイルが残っていて起動できないケースを防ぐ為の[entrypoint.sh](/entrypoint.sh)それらを起動する[Docker-compose.yml](/Docker-compose.yml)で構成されています。
