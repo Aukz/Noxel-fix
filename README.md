@@ -35,10 +35,14 @@ http://3.114.132.40
 * ユーザーのプロフィール画像変更(Gravatar)  
 * DM機能(ルームを作りその中でチャットする)  
 * 小説のタイトルの投稿(CURD)  
-* 作った小説に話を作る機能(CURD)  
+* 作った小説に話数を作る機能(CURD)  
 * ブックマーク機能  
 * 感想投稿機能(CURD)  
 * イラスト(画像)投稿機能(CURD)  
 * ページネーション機能(kaminari)  
 * ブックマークが多い順のランキング機能  
 * 小説の検索機能  
+
+# 開発環境
+自身のMacBook上でDocker環境での開発を行なっています。
+[Dockerfile](/Dockerfile)とpidファイルが残っていて起動できないケースを防ぐ為の[entrypoint.sh](/entrypoint.sh)それらを起動する[Docker-compose.yml](/Docker-compose.yml)で構成されています。
