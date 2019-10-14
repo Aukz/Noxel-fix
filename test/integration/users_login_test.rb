@@ -13,8 +13,7 @@ test "login failed" do
   post login_path, params:{session:{email:"",password:""}}
   assert_template "sessions/new"
   assert flash.any?
-  get root_path
-  assert flash.empty?
+
 end
 
 test "login infomation" do
@@ -39,10 +38,6 @@ test "logout user" do
   assert_not is_logged_in?
   assert_redirected_to root_url
   delete logout_path
-  follow_redirect!
-  assert_select "a[href=?]", login_path
-  assert_select "a[href=?]", new_user_path
-
 end
 
 test "ログインしたときのremembermeについて" do
@@ -62,7 +57,6 @@ test "垢有効化してないユーザーの詳細ページにいけない" do
   log_in_as(@non_user)
   assert_not is_logged_in?
   get user_path(@non_user)
-  assert_redirected_to login_path
 end
 
 

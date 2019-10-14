@@ -8,8 +8,7 @@ http://3.114.132.40
 
 # テストユーザーとしてログイン
 
-* email: test1234@example.com  
-* password: testtest
+ログイン画面にあるでもログインを押してください。
 
 # 使用した技術, Gem
 * ruby 2.5.0  
