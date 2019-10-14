@@ -6,7 +6,7 @@ Noxelは作家とイラストレーターを繋げるサービスです。転職
 
 http://3.114.132.40  
 
-(img width="1435" alt="スクリーンショット 2019-10-15 4 30 41" src="https://user-images.githubusercontent.com/51396383/66777923-384dab80-ef05-11e9-9ee2-96e84c1e7059.png")
+![home](https://user-images.githubusercontent.com/51396383/66777923-384dab80-ef05-11e9-9ee2-96e84c1e7059.png")
 
 # テストユーザーとしてログイン
 
