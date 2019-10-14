@@ -22,17 +22,14 @@
   </div>
 </div>
 
-
-
-
-
-
-<%  if logged_in? && current_user.story?(@novel) %>
-  |<%= link_to '編集', edit_story_path(@story) %> |
-  <%= link_to "削除", story_path(@story),method: :delete,
-                                            data: {confirm: "本当によろしいですか？"}%>|
-<% end  %>
-<% if logged_in?  %>
-  <%= link_to "感想", impression_story_path  %>|
-<% end  %>
-<%= link_to "一覧", @novel %>
+<div class="text-center mt-3">
+  <%  if logged_in? && current_user.story?(@novel) %>
+    |<%= link_to '編集', edit_story_path(@story) %> |
+    <%= link_to "削除", story_path(@story),method: :delete,
+                                              data: {confirm: "本当によろしいですか？"}%>|
+  <% end  %>
+  <% if logged_in?  %>
+    <%= link_to "感想", impression_story_path  %>|
+  <% end  %>
+  <%= link_to "一覧 >>", @novel %>
+</div>

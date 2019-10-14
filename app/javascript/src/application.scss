@@ -10,12 +10,12 @@ body{
     background: #e2e2e2;
   }
   .top-container{
+    #box{
+  display: none;
+  overflow: hidden;
+}
   }
 }
-.text-right{
-  float: right;
-}
-
 
 // h5{
 //   .impreback{

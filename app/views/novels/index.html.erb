@@ -1,9 +1,10 @@
 
-<table class="impression table table-bordered ">
+<table class="impression table table-bordered mb-0">
+  <h3 class="text-center pt-3 pb-3">検索結果：<%= params[:search][:novel] %></h3>
   <tbody>
     <% unless @novels.blank?  %>
       <% @novels.each do |novel| %>
-        <tr >
+        <tr style="border: 2px solid #d2d2d2;">
           <td scope="row" class="search">
             <div class="pl-5">
               <h4><%= link_to novel.title, novel%><span class="ml-3 h6">作者: <%= novel.user.name %></span></h4>
