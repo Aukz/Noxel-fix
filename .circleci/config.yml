@@ -8,8 +8,11 @@ jobs:
           MYSQL_USERNAME: 'root'
           MYSQL_PASSWORD: ''
           MYSQL_HOST: db
-          MYSQL_PORT: 3306
       - image: circleci/mysql:5.7
+        environment:
+          MYSQL_DATABASE: db/noxel_test
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_ROOT_HOST: db
     working_directory: ~/Noxel
     steps:
       - checkout
