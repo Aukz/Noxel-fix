@@ -10,9 +10,8 @@ jobs:
           host: db
       - image: circleci/mysql:5.7
 
-   working_directory: ~/Noxel
-
-   steps:
+     working_directory: ~/Noxel
+     steps:
       - checkout
       - restore_cache:
           keys:
