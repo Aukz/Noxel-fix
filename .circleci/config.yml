@@ -5,9 +5,10 @@ jobs:
       - image: circleci/ruby:2.5.0-node-browsers
         environment:
           RAILS_ENV: test
-          DB_USERNAME: 'root'
-          DB_PASSWORD: ''
-          DB_HOST: db
+          MYSQL_USERNAME: 'root'
+          MYSQL_PASSWORD: ''
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_PORT: 3306
       - image: circleci/mysql:5.7
     working_directory: ~/Noxel
     steps:
