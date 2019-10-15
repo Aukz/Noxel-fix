@@ -9,5 +9,7 @@ jobs:
           DB_PASSWORD:
           host: db
       - image: circleci/mysql:5.7
+        environment:
+          database: db/noxel_test
     steps:
       - run: echo "hello world"
