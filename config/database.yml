@@ -21,7 +21,7 @@ default: &default
 development:
   <<: *default
   database: db/noxel_development
-  host: db
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -29,7 +29,7 @@ development:
 test:
   <<: *default
   database: db/noxel_test
-  host: db
+
 
 
 production:
