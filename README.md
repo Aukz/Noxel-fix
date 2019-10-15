@@ -17,7 +17,7 @@ Noxelは作家とイラストレーターを繋げるサービスです。転職
   * VPC  
   * WEBサーバー: Nginx   
 * Docker
-* circle ci 
+* circle ci
 
 使用したGem一覧
 * kaminari  
@@ -41,3 +41,11 @@ Noxelは作家とイラストレーターを繋げるサービスです。転職
 # 開発環境
 MacBookpro上でDocker環境での開発を行なっています。  
 [Dockerfile](/Dockerfile)とpidファイルが残っていて起動できないケースを防ぐ為の[entrypoint.sh](/entrypoint.sh)それらを起動する[Docker-compose.yml](/Docker-compose.yml)で構成されています。
+
+# これからのアップデート(やってみたいこと)の予定
+* AWS  
+  * 画像の保存にS3  
+  * メール配信システムにはSES  
+  * Route53(または別のサイトでドメインを取得)を使いドメインを設定  
+* circleciはまだテストまでしか行なっていないので自動でデプロイできるようにしたい
+* testをminitestからRSpecに変更すること
