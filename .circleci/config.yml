@@ -7,7 +7,7 @@ jobs:
           RAILS_ENV: test
           DB_USERNAME: 'root'
           DB_PASSWORD: ''
-          host: 127.0.0.1
+          host: db
       - image: circleci/mysql:5.7
     working_directory: ~/Noxel
     steps:
