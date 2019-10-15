@@ -27,6 +27,9 @@ jobs:
           name: "before_test: setup db"
           command: docker-compose run web rails db:create db:migrate
       - run:
+          name: prikon
+          command: docker-compose run web rake assets:precompile     
+      - run:
           name: test
           command: docker-compose run web rails test #RSpecを使う場合は、bundle exec rspec
       - run:
