@@ -9,6 +9,8 @@ jobs:
           DB_PASSWORD: ''
           host: db
       - image: circleci/mysql:5.7
+        environment:
+          MYSQL_DATABASE: noxel
     working_directory: ~/Noxel
     steps:
       - checkout
@@ -23,5 +25,5 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run: bundle exec rails db:create
-      - run: bundle exec rails db:migrate 
+      - run: bundle exec rails db:migrate
       - run: bundle exec rails test
