@@ -12,6 +12,7 @@ jobs:
     working_directory: ~/Noxel
     steps:
       - checkout
+      - run: install bundler
       - run: bundle install
       - run: bundle exec rails db:create db:migrate RAILS_ENV=test
       - run: bundle exec rails test
