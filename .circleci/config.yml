@@ -5,8 +5,7 @@ jobs:
       - image: circleci/ruby:2.5-stretch-node-browsers-legacy
         environment:
           RAILS_ENV: test
-          DB_USERNAME: 'root'
-          DB_PASSWORD: ''
+          DB_USERNAME: root
+          DB_PASSWORD:
           host: db
-          
       - image: circleci/mysql:5.7
