@@ -9,10 +9,5 @@ jobs:
           DB_PASSWORD: ''
           host: db
       - image: circleci/mysql:5.7
-    working_directory: ~/Noxel
     steps:
-      - checkout
-      - run: install bundler
-      - run: bundle install
-      - run: bundle exec rails db:create db:migrate RAILS_ENV=test
-      - run: bundle exec rails test
+      - run: echo "hello world"
