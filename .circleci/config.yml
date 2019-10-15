@@ -2,39 +2,39 @@ version: 2
 jobs:
   build:
     machine:
-      -image: circleci/classic:edge
-    docker:
-      - image: circleci/ruby:2.5.0-node-browsers
-        environment:
-          RAILS_ENV: test
-          MYSQL_USERNAME: 'root'
-          MYSQL_PASSWORD: ''
-          MYSQL_HOST: db
-      - image: circleci/mysql:5.7
-        environment:
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
-          # MYSQL_ROOT_HOST: '%'
-    working_directory: ~/Noxel
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            - v1-dependencies-
-      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
-      - run: yarn install
-      - run: mv config/database.yml.ci config/database.yml
-      - save_cache:
-          paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: Docker Compose をインストール
-          command: |
-            curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
-            chmod +x ~/docker-compose
-            sudo mv ~/docker-compose /usr/local/bin/docker-compose
-      - run: docker-compose build
-      - run: bundle exec rails db:create
-      - run: bundle exec rails db:migrate
-      - run: bundle exec rails test
+      docker:
+        - image: circleci/classic:edge
+        - image: circleci/ruby:2.5.0-node-browsers
+          environment:
+            RAILS_ENV: test
+            MYSQL_USERNAME: 'root'
+            MYSQL_PASSWORD: ''
+            MYSQL_HOST: db
+        - image: circleci/mysql:5.7
+          environment:
+            MYSQL_ALLOW_EMPTY_PASSWORD: true
+            # MYSQL_ROOT_HOST: '%'
+      working_directory: ~/Noxel
+      steps:
+        - checkout
+        - restore_cache:
+            keys:
+              - v1-dependencies-{{ checksum "Gemfile.lock" }}
+              - v1-dependencies-
+        - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+        - run: yarn install
+        - run: mv config/database.yml.ci config/database.yml
+        - save_cache:
+            paths:
+              - ./vendor/bundle
+            key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+        - run:
+            name: Docker Compose をインストール
+            command: |
+              curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+              chmod +x ~/docker-compose
+              sudo mv ~/docker-compose /usr/local/bin/docker-compose
+        - run: docker-compose build
+        - run: bundle exec rails db:create
+        - run: bundle exec rails db:migrate
+        - run: bundle exec rails test
