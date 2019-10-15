@@ -7,12 +7,11 @@ jobs:
           RAILS_ENV: test
           MYSQL_USERNAME: 'root'
           MYSQL_PASSWORD: ''
-          MYSQL_HOST: db
+          MYSQL_HOST: 127.0.0.1
       - image: circleci/mysql:5.7
         environment:
-          MYSQL_DATABASE: db/noxel_test
           MYSQL_ALLOW_EMPTY_PASSWORD: true
-          MYSQL_ROOT_HOST: db
+          MYSQL_ROOT_HOST: '%'
     working_directory: ~/Noxel
     steps:
       - checkout
@@ -22,6 +21,7 @@ jobs:
             - v1-dependencies-
       - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
       - run: yarn install
+      - run: mv config/database.yml.ci config/database.yml
       - save_cache:
           paths:
             - ./vendor/bundle
