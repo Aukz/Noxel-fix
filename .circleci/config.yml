@@ -7,7 +7,7 @@ jobs:
           RAILS_ENV: test
           MYSQL_USERNAME: 'root'
           MYSQL_PASSWORD: ''
-          MYSQL_HOST: 127.0.0.1
+          MYSQL_HOST: db
       - image: circleci/mysql:5.7
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
