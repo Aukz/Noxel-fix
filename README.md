@@ -16,7 +16,8 @@ Noxelは作家とイラストレーターを繋げるサービスです。転職
   * EC2  
   * VPC  
   * WEBサーバー: Nginx   
-* Docker  
+* Docker
+* circle ci 
 
 使用したGem一覧
 * kaminari  
