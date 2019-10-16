@@ -1,3 +1,21 @@
-<div class="card pt-3">
-  <%= render "/novels/rank" ,ranks: @ranks %>
+<ul class="nav nav-tabs pt-3">
+  <li class="nav-item">
+    <a href="#bookmark" class="nav-link active" data-toggle="tab">ブックマークが多い順</a>
+  </li>
+  <li class="nav-item">
+    <a href="#impression" class="nav-link" data-toggle="tab">感想が多い順</a>
+  </li>
+</ul>
+<!-- タブ本体 -->
+<div class="tab-content">
+  <div id="bookmark" class="tab-pane active">
+    <div class="card pt-3">
+      <%= render "/novels/rank" ,ranks: @ranks %>
+    </div>
+  </div>
+  <div id="impression" class="tab-pane">
+    <div class="card pt-3">
+      <%= render "/novels/imprerank", imranks: @imranks %>
+    </div>
+  </div>
 </div>

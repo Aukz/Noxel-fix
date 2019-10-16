@@ -52,6 +52,7 @@ class NovelsController < ApplicationController
 
   def ranking
     @ranks =Novel.find(Bookmark.group(:novel_id).order('count(novel_id) desc').limit(10).pluck(:novel_id))
+    @imranks =Story.find(Impression.group(:story_id).order('count(story_id) desc').limit(10).pluck(:story_id))
   end
   private
 

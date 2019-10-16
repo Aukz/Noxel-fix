@@ -1,0 +1,40 @@
+<h3 class="text-center mb-3">感想ランキング</h3>
+<div class="row border">
+  <div class="col-md-6 col-10 mx-auto border-right">
+    <% i = 0 %>
+    <% if imranks.any?  %>
+      <% imranks[0,5].each do |impre|  %>
+        <div class="row">
+          <div class="col-md-2 col-3 mx-auto text-center">
+            <span><%= i+1 %></span>
+          </div>
+          <div class="col-md-10 col-9 mx-auto ">
+            <%= link_to impre.novel.title,impre.novel %>
+            <br>
+            <small><%= impre.novel.user.name %></small>
+          </div>
+        </div>
+        <hr>
+        <% i += 1 %>
+      <% end  %>
+    <%end  %>
+  </div>
+  <div class="col-md-6 col-10 mx-auto">
+    <% if imranks.count > 5  %>
+      <% imranks[5,5].each do |impre|  %>
+        <div class="row">
+          <div class="col-md-2 col-3 mx-auto text-center">
+            <span class="bg-<%= i == 0 ? 'warning' : '' %> p-3 m-0"><%= i+1 %></span>
+          </div>
+          <div class="col-md-10 col-9 mx-auto ">
+            <%= link_to impre.novel.title,impre.novel  %>
+            <br>
+            <small><%= impre.novel.user.name %></small>
+          </div>
+        </div>
+        <hr>
+        <% i += 1 %>
+      <% end  %>
+    <% end %>
+  </div>
+</div>

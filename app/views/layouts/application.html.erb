@@ -14,7 +14,7 @@
     <div class="container" style="min-height: 80vh;">
     <% else %>
     <div class="top-container" style="min-height: 80vh;">
-    <% end  %>
+    <% end %>
     <% flash.each do |message_type, message| %>
       <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
     <% end %>
