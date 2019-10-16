@@ -13,7 +13,6 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get user_path(@user)
     assert_template "users/show"
-    assert_select 'title', full_title(@user.name)
      assert_select 'h1', text: @user.name
      assert_select 'h1>img.gravatar'
      @user.novels.each do |novel|

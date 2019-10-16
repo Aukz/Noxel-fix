@@ -41,8 +41,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_template "users/show"
     assert flash.any?
     assert is_logged_in?
-    assert_select "title", "user"
     assert_select  "h1", "user"
-  
+
   end
 end
