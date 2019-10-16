@@ -17,7 +17,7 @@ Noxelは作家とイラストレーターを繋げるサービスです。転職
   * VPC  
   * WEBサーバー: Nginx   
 * Docker
-* circle ci
+* CircleCI
 
 使用したGem一覧
 * kaminari  
@@ -47,5 +47,5 @@ MacBookpro上でDocker環境での開発を行なっています。
   * 画像の保存にS3  
   * メール配信システムにはSES  
   * Route53(または別のサイトでドメインを取得)を使いドメインを設定  
-* circleciはまだテストまでしか行なっていないので自動でデプロイできるようにしたい
+* CircleCIではまだテストまでしか行なっていないので自動でデプロイできるようにしたい
 * testをminitestからRSpecに変更すること
