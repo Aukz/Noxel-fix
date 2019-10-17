@@ -6,7 +6,7 @@
     <h3 class="mt-4">感想</h3>
       <%= form_for(@impression) do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
-        <%= f.hidden_field :story_id, value: params[:story_id] %>
+        <%= f.hidden_field :story_id, value: @story.id %>
 
         <%= f.label :content, "感想本文" %>
         <%= f.text_area :content,size: "10x10", class: 'form-control' %>

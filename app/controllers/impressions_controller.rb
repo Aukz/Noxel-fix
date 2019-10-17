@@ -3,6 +3,7 @@ class ImpressionsController < ApplicationController
   before_action :set_impression, only: [:edit,:update,:destroy]
 
   def new
+    @story = Story.find(params[:story_id])
     @impression = Impression.new
   end
 
