@@ -10,6 +10,7 @@ Noxelは作家とイラストレーターを繋げるサービスです。転職
 * Ruby on Rails 6.0.0  
   * active_storage(画像アップロード)  
   * action_text(リッチなテキストエディタ機能)  
+* JavaScript  
 * bootstrap4  
 * MySQL 5.7  
 * AWS  
@@ -35,17 +36,18 @@ Noxelは作家とイラストレーターを繋げるサービスです。転職
 * 感想投稿機能(CURD)  
 * イラスト(画像)投稿機能(CURD)  
 * ページネーション機能(kaminari)  
-* ブックマークが多い順のランキング機能  
+* ブックマーク,感想が多い順のランキング機能  
 * 小説の検索機能  
 
 # 開発環境
 MacBookpro上でDocker環境での開発を行なっています。  
-[Dockerfile](/Dockerfile)とpidファイルが残っていて起動できないケースを防ぐ為の[entrypoint.sh](/entrypoint.sh)それらを起動する[Docker-compose.yml](/Docker-compose.yml)で構成されています。
+[Dockerfile](/Dockerfile)とpidファイルが残っていて起動できないケースを防ぐ為の[entrypoint.sh](/entrypoint.sh)それらを起動する
+[Docker-compose.yml](/docker-compose.yml)で構成されています。
 
 # これからのアップデート(やってみたいこと)の予定
 * AWS  
   * 画像の保存にS3  
   * メール配信システムにはSES  
   * Route53(または別のサイトでドメインを取得)を使いドメインを設定  
-* CircleCIではまだテストまでしか行なっていないので自動でデプロイできるようにしたい
+* CircleCIを使って自動でテストしてからデプロイできるようにしたい(現在自動テストまで実装済み)
 * testをminitestからRSpecに変更すること
