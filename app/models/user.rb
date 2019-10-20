@@ -77,7 +77,7 @@ class User < ApplicationRecord
   end
 
   def follow(other_user)
-    self.following << other_user
+    following << other_user
   end
 
   def unfollow(other_user)
@@ -93,7 +93,7 @@ class User < ApplicationRecord
   end
 
   def bookmark?(other_novel)
-    self.novel_bookmark.include?(other_novel)
+    novel_bookmark.include?(other_novel)
   end
 
   def bookmark(other_novel)
