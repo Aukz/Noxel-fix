@@ -50,4 +50,4 @@ MacBookpro上でDocker環境での開発を行なっています。
   * メール配信システムにはSES  
   * Route53(または別のサイトでドメインを取得)を使いドメインを設定  
 * CircleCIを使って自動でテストしてからデプロイできるようにしたい(現在自動テストまで実装済み)
-* testをminitestからRSpecに変更すること
+* testをminitestからRSpecに変更してみたい
