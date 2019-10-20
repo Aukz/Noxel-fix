@@ -24,8 +24,11 @@ jobs:
           name: docker-compose up
           command: docker-compose up -d
       - run:
-          name: "before_test: setup db"
-          command: docker-compose run web rails db:create db:migrate
+          name: "before_test: setup create"
+          command: docker-compose run web rails db:create
+      - run:
+          name: "before_test: setup migrate"
+          command: docker-compose run web rails db:migrate
       - run:
           name: プリコンパイル
           command: docker-compose run web rake assets:precompile
