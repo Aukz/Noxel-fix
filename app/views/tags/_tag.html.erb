@@ -1,3 +1,5 @@
 
-<p class="col-1 text-center offset-1" style="word-break: break-word;"><%= tag.name %></p>
-<%= link_to "×", tag_path(tag.id),method: :delete, remote: true  %>
+<p class="col-2 text-center ml-5 pl-5" style="word-break: break-word;"><%= tag.name %></p>
+<% if logged_in? %>
+  <%= link_to "×", tag_path(tag.id),method: :delete, remote: true  %>
+<% end %>

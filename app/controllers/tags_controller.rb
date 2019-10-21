@@ -3,7 +3,7 @@ class TagsController < ApplicationController
   def create
     @novel = Novel.find(params[:novel_id])
     @tag = @novel.tags.new(tag_params)
-    if @novel.tags.count < 5
+    if @novel.tags.count < 7
       @tag.save
     end
   end
