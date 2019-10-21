@@ -12,12 +12,40 @@
     <div style="float:right" class="mr-5 mt-2"><%= render "bookmark_form" %></div>
 </div>
 <div style="clear:both" class="row">
-  <div class="mx-auto card p-3 border-0 w-75">
+  <div class="offset-md-1 col-md-10 card p-3 border-0 ">
     <p class="">
       <%= @novel.description %>
     </p>
   </div>
 </div>
+
+<div class="row" id="tags_index">
+  <%= render @novel.tags %>
+</div>
+
+  <section class="accordion float-right text-right">
+    <p id="btn" class="text-white mt-4 btn btn-info">Tag登録</p>
+    <div  id="box"class="row">
+      <div class="col-12">
+        <%= form_with(model: @tag,html: {class: "row"}) do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+          <%= hidden_field_tag :novel_id, @novel.id %>
+          <%= f.text_field :name, class: "form-control mb-0 mr-sm-2 col-md-8", maxlength: 15 %>
+          <%= f.submit "登録", class: "btn btn-outline-success col-md-3 mb-0" %>
+        <% end %>
+      </div>
+    </div>
+  </section>
+
+  <script type="text/javascript">
+    $(function(){
+        $('#btn').on('click', function(){
+           $('#box').slideToggle('fast');
+        });
+    });
+  </script>
+
+
 
 <div class="row">
   <div class="mx-auto">

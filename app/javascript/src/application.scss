@@ -8,7 +8,11 @@ body{
   // background: #efefef;
   .container{
     background: #e2e2e2;
+  #box{
+    display: none;
+    overflow: hidden;
   }
+  } 
   .top-container{
     #box{
   display: none;

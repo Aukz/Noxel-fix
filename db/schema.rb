@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_07_063014) do
+ActiveRecord::Schema.define(version: 2019_10_21_023709) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -124,6 +124,15 @@ ActiveRecord::Schema.define(version: 2019_10_07_063014) do
     t.index ["title"], name: "index_stories_on_title"
   end
 
+  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.bigint "novel_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_tags_on_name"
+    t.index ["novel_id"], name: "index_tags_on_novel_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -149,4 +158,5 @@ ActiveRecord::Schema.define(version: 2019_10_07_063014) do
   add_foreign_key "novels", "users"
   add_foreign_key "pictures", "users"
   add_foreign_key "stories", "novels"
+  add_foreign_key "tags", "novels"
 end
