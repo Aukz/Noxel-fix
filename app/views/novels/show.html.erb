@@ -25,7 +25,7 @@
       <p id="btn" class="text-white mb-0 btn btn-info">Tag登録</p>
       <div  id="box"class="row">
         <div class="col-12">
-          <small>タグは８件まで登録できます。</small>
+          <small>タグは7件まで登録できます。</small>
           <%= form_with(model: @tag,html: {class: "row"}) do |f| %>
             <%= render 'shared/error_messages', object: f.object %>
             <%= hidden_field_tag :novel_id, @novel.id %>

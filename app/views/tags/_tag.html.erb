@@ -1,4 +1,4 @@
-<p class="col-2 text-center ml-5 pl-5" style="word-break: break-word;"><%= tag.name %>
+<p class="col-2 text-center ml-2" style="word-break: break-word;">・<%= tag.name %>
 <% if logged_in? %>
   <%= link_to "×", tag_path(tag.id),method: :delete, remote: true  %>
 <% end %>
