@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="mx-auto mt-5">
+  <%= link_to room, class: "mx-auto mt-5 border border-dark py-2 px-5" do %>
     <% if room.receiver.id == @user.id  %>
-      <%= link_to room.sender.name, room %>との部屋
+      <%=  room.sender.name %>との部屋
     <% else %>
-      <%= link_to room.receiver.name, room %>との部屋
+      <%=  room.receiver.name %>との部屋
     <% end  %>
-  </div>
+  <% end  %>
 </div>
