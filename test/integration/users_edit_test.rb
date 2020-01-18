@@ -14,7 +14,8 @@ class UsersEditTest < ActionDispatch::IntegrationTest
                                           password:  "foo",
                                           password_confirmation: "bar" }}
     assert_template "users/edit"
-    assert_select "div.alert", "The form contains 5 errors."
+    # 日本がした時にerrorsがerrorにしないとエラーになってしまったのでコメントに残す
+    assert_select "div.alert", "The form contains 5 error."
   end
 
   test "edit success" do
